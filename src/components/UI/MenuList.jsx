@@ -9,7 +9,7 @@ import {
   FundOutlined,
 } from "@ant-design/icons";
 
-// Antd Components
+// Components
 import { Menu } from "antd";
 
 const MenuList = () => {
