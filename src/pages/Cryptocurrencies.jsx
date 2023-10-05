@@ -16,6 +16,7 @@ const Cryptocurrencies = ({ simplified }) => {
         );
         setCryptos(filteredCryptos);
     }, [cryptoList, searchTerm]);
+    if (!cryptos) return "Loading...";
 
     return (
         <>
@@ -27,43 +28,35 @@ const Cryptocurrencies = ({ simplified }) => {
                     />
                 </div>
             )}
-            {cryptos && (
-                <Row gutter={[32, 32]} className="crypto-card-contianer">
-                    {cryptos?.map((currency) => (
-                        <Col
-                            xs={24}
-                            sm={12}
-                            lg={6}
-                            className="crypto-card"
-                            key={currency.uuid}
-                        >
-                            <Link to={`/crypto/${currency.uuid}`}>
-                                <Card
-                                    title={`${currency.rank}. ${currency.name}`}
-                                    extra={
-                                        <img
-                                            className="crypto-image"
-                                            src={currency.iconUrl}
-                                            alt="an Crypto"
-                                        />
-                                    }
-                                    hoverable
-                                >
-                                    <p>Price: {millify(currency.price)}</p>
-                                    <p>
-                                        Market Cap:{" "}
-                                        {millify(currency.marketCap)}
-                                    </p>
-                                    <p>
-                                        Daily Change: {millify(currency.change)}
-                                        %
-                                    </p>
-                                </Card>
-                            </Link>
-                        </Col>
-                    ))}
-                </Row>
-            )}
+            <Row gutter={[32, 32]} className="crypto-card-contianer">
+                {cryptos?.map((currency) => (
+                    <Col
+                        xs={24}
+                        sm={12}
+                        lg={6}
+                        className="crypto-card"
+                        key={currency.uuid}
+                    >
+                        <Link to={`/crypto/${currency.uuid}`}>
+                            <Card
+                                title={`${currency.rank}. ${currency.name}`}
+                                extra={
+                                    <img
+                                        className="crypto-image"
+                                        src={currency.iconUrl}
+                                        alt="an Crypto"
+                                    />
+                                }
+                                hoverable
+                            >
+                                <p>Price: {millify(currency.price)}</p>
+                                <p>Market Cap: {millify(currency.marketCap)}</p>
+                                <p>Daily Change: {millify(currency.change)}%</p>
+                            </Card>
+                        </Link>
+                    </Col>
+                ))}
+            </Row>
         </>
     );
 };

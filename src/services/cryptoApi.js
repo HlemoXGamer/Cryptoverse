@@ -7,7 +7,6 @@ const cryptoApiHeaders = {
 
 const baseUrl = "https://coinranking1.p.rapidapi.com";
 
-// Helper Function to get endpoint
 const createRequest = (url) => ({ url, headers: cryptoApiHeaders });
 
 export const cryptoApi = createApi({
