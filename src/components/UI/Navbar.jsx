@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // Components
-import { Button, Menu, Typography, Avatar } from "antd";
+import { Button, Typography, Avatar } from "antd";
 import MenuList from "./MenuList";
 
 // Images

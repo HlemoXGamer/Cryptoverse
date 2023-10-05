@@ -19,6 +19,7 @@ import {
     ThunderboltOutlined,
 } from "@ant-design/icons";
 import LineChart from "../components/News/LineChart";
+import Loader from "../components/UI/Loader";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -39,7 +40,7 @@ const CryptoDetails = () => {
 
     const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
-    if (!cryptoDetails) return "Loading...";
+    if (!cryptoDetails) return <Loader />;
     const stats = [
         {
             title: "Price to USD",
